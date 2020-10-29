@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name_string: MyString
+  weapon: one
+  dress: one
+
+two:
+  name_string: MyString
+  weapon: two
+  dress: two

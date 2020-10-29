@@ -1,0 +1,102 @@
+<%= form_with(model: weapon, local: true) do |form| %>
+  <% if weapon.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(weapon.errors.count, "error") %> prohibited this weapon from being saved:</h2>
+
+      <ul>
+      <% weapon.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group">
+    <%= form.label :no %>
+    <%= form.number_field :no, class:"form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :name%>
+    <%= form.text_field :name, class:"form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :img %>
+    <%= form.text_field :img, class:"form-control" %>
+  </div>
+  
+  <div class="field form-group">
+    <%= form.label :weapon_type %>
+    <%= form.text_field :weapon_type, class:"form-control" %>
+  </div>
+  
+  <div class="field form-group">
+    <%= form.label :category %>
+    <%= form.text_field :category, class:"form-control" %>
+  </div>
+  
+  <div class="field form-group">
+    <%= form.label :rarity %>
+    <%= form.text_field :rarity, class:"form-control" %>
+  </div>
+  
+  <div class="field form-group">
+    <%= form.label :max_lvl %>
+    <%= form.text_field :max_lvl, class:"form-control" %>
+  </div>
+  
+  <div class="field form-group">
+    <%= form.label :element %>
+    <%= form.text_field :element, class:"form-control" %>
+  </div>
+  
+  <div class="field form-group">
+    <%= form.label :max_atck %>
+    <%= form.text_field :max_atck, class:"form-control" %>
+  </div>
+  
+  <div class="field form-group">
+    <%= form.label :max_bullet %>
+    <%= form.text_field :max_bullet, class:"form-control" %>
+  </div>
+  
+  <div class="field form-group">
+    <%= form.label :skl_1 %>
+    <%= form.text_field :skl_1, class:"form-control" %>
+  </div>
+  
+  <div class="field form-group">
+    <%= form.label :skl_1_element %>
+    <%= form.text_field :skl_1_element, class:"form-control" %>
+  </div>
+  
+  <div class="field form-group">
+    <%= form.label :skl_1_detail %>
+    <%= form.text_field :skl_1_detail, class:"form-control" %>
+  </div>
+  
+  <div class="field form-group">
+    <%= form.label :skl_2 %>
+    <%= form.text_field :skl_2, class:"form-control" %>
+  </div>
+  
+  <div class="field form-group">
+    <%= form.label :skl_2_element %>
+    <%= form.text_field :skl_2_element, class:"form-control" %>
+  </div>
+  
+  <div class="field form-group">
+    <%= form.label :skl_2_detail %>
+    <%= form.text_field :skl_2_detail, class:"form-control" %>
+  </div>
+  
+  <div class="field form-group">
+    <%= form.label :kakusei %>
+    <%= form.text_field :kakusei, class:"form-control" %>
+  </div>
+  
+  <div class="actions">
+    <%= form.submit class: "btn btn-primary" %>
+  </div>
+<% end %>

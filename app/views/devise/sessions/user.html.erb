@@ -1,0 +1,10 @@
+<div class="card mb-3">
+  <div class="card-body">
+		<h5 class="card-title"><%= user.no %></h5>
+  	<h5 class="card-title"><%= user.name %></h5>
+  	<h5 class="card-title"><%= user.img %></h5>
+  	<%= link_to 'Show', user, class: "btn btn-outline-primary" %>
+	  <%= link_to 'Edit', edit_user_path(user), class: "btn btn-outline-danger" %>
+	  <%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-primary" %>
+  </div>
+</div>

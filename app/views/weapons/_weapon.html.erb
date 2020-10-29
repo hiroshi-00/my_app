@@ -1,0 +1,28 @@
+<div class="card mb-3">
+  <div class="card-body">
+		<h5 class="card-title"><%= weapon.no %></h5>
+  	<h5 class="card-title"><%= weapon.name %></h5>
+  	<h5 class="card-title"><%= weapon.img %></h5>
+  	<h5 class="card-title"><%= weapon.weapon_type %></h5>
+  	<h5 class="card-title"><%= weapon.category %></h5>
+  	<h5 class="card-title"><%= weapon.rarity %></h5>
+  	<h5 class="card-title"><%= weapon.max_lvl %></h5>
+  	<h5 class="card-title"><%= weapon.element %></h5>
+  	<h5 class="card-title"><%= weapon.max_atck %></h5>
+  	<h5 class="card-title"><%= weapon.max_bullet %></h5>
+  	<h5 class="card-title"><%= weapon.skl_1 %></h5>
+  	<h5 class="card-title"><%= weapon.skl_1_element %></h5>
+  	<h5 class="card-title"><%= weapon.skl_1_detail %></h5>
+  	<h5 class="card-title"><%= weapon.skl_2 %></h5>
+  	<h5 class="card-title"><%= weapon.skl_2_element %></h5>
+  	<h5 class="card-title"><%= weapon.skl_2_detail %></h5>
+  	<h5 class="card-title"><%= weapon.kakusei %></h5>
+  	<% if request.path == "/weapons" %>
+  	  <%= link_to 'Show', weapon, class: "btn btn-outline-primary" %>
+  	<% end %>
+  	<% if user_signed_in? %>
+  	  <%= link_to 'Edit', edit_weapon_path(weapon), class: "btn btn-outline-danger" %>
+  	  <%= link_to 'Destroy', weapon, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-primary" %>
+  	<% end %>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+<div class="card mb-3">
+  <div class="card-body">
+		<h5 class="card-title"><%= dress.no %></h5>
+  	<h5 class="card-title"><%= dress.name %></h5>
+  	<h5 class="card-title"><%= dress.img %></h5>
+  	<h5 class="card-title"><%= dress.category %></h5>
+  	<h5 class="card-title"><%= dress.rarity %></h5>
+  	<h5 class="card-title"><%= dress.max_lvl %></h5>
+  	<h5 class="card-title"><%= dress.element %></h5>
+  	<h5 class="card-title"><%= dress.max_hp %></h5>
+  	<h5 class="card-title"><%= dress.skl_1 %></h5>
+  	<h5 class="card-title"><%= dress.skl_1_element %></h5>
+  	<h5 class="card-title"><%= dress.skl_1_detail %></h5>
+  	<h5 class="card-title"><%= dress.skl_2 %></h5>
+  	<h5 class="card-title"><%= dress.skl_2_element %></h5>
+  	<h5 class="card-title"><%= dress.skl_2_detail %></h5>
+  	<h5 class="card-title"><%= dress.kakusei %></h5>
+  	<% if request.path == "/dresses" %>
+  	  <%= link_to 'Show', dress, class: "btn btn-outline-primary" %>
+  	<% end %>
+	  <%= link_to 'Edit', edit_dress_path(dress), class: "btn btn-outline-danger" %>
+	  <%= link_to 'Destroy', dress, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-primary" %>
+  </div>
+</div>

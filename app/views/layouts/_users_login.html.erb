@@ -1,0 +1,58 @@
+<li class="nav-item">
+  <%= link_to "Events", posts_path, class: "nav-link" %>
+</li>
+        
+<li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  	ガチャ
+  </a>
+  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+    <%= link_to '武器ガチャ', '#', class: 'dropdown-item' %>
+    <%= link_to '服装ガチャ', '#', class: 'dropdown-item' %>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="#">イベントガチャ</a>
+  </div>
+</li>
+        
+<li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  	装備
+  </a>
+  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+    <%= link_to '武器一覧', weapons_path, class: 'dropdown-item' %>
+    <%= link_to '服装一覧', dresses_path, class: 'dropdown-item' %>
+  </div>
+</li>
+
+<li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    装備追加
+  </a>
+  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+    <%= link_to '武器追加', new_weapon_path, class: 'dropdown-item' %>
+    <%= link_to '服装追加', new_dress_path, class: 'dropdown-item' %>
+  </div>
+</li>
+        
+<li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  	キャラクター
+  </a>
+  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+    <%= link_to 'キャラクター1', '#', class: 'dropdown-item' %>
+    <%= link_to 'キャラクター2', '#', class: 'dropdown-item' %>
+    <%= link_to 'キャラクター3', '#', class: 'dropdown-item' %>
+    <%= link_to 'キャラクター4', '#', class: 'dropdown-item' %>
+    <%= link_to 'キャラクター5', '#', class: 'dropdown-item' %>
+    <%= link_to 'キャラクター6', '#', class: 'dropdown-item' %>
+    <%= link_to 'キャラクター7', '#', class: 'dropdown-item' %>
+    <%= link_to 'キャラクター8', '#', class: 'dropdown-item' %>
+    <%= link_to 'キャラクター9', '#', class: 'dropdown-item' %>
+    <%= link_to 'キャラクター10', '#', class: 'dropdown-item' %>
+    <%= link_to 'キャラクター11', '#', class: 'dropdown-item' %>
+  </div>
+</li>
+      
+<li class="nav-item">
+	<%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %>
+</li>
