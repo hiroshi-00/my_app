@@ -18,11 +18,11 @@ class AdminsController < ApplicationController
     
     def admins_user_auth
       # ログインずみか？
-      # userモデルのuser_typeカラムが数字の1かどうか
+      # userモデルのuser_typeカラムが数字の0かどうか
       pre_url = Rails.application.routes.recognize_path(request.referer)
       logger.debug("----------------- pre_url = #{pre_url}")
       if user_signed_in?
-        if current_user.user_type == 1
+        if current_user.id == 0 && current_user.user_type == 0
           true
         else
           flash[:error] = "権限がありません"
@@ -35,5 +35,4 @@ class AdminsController < ApplicationController
           # redirect_to new_user_session_path
       end
     end
-  
 end

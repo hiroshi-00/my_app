@@ -10,16 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_29_093223) do
+ActiveRecord::Schema.define(version: 2020_10_31_065047) do
 
   create_table "categories", force: :cascade do |t|
-    t.string "name_string"
     t.integer "weapon_id"
     t.integer "dress_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["dress_id"], name: "index_categories_on_dress_id"
     t.index ["weapon_id"], name: "index_categories_on_weapon_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.string "comment_title"
+    t.text "comment_content"
+    t.integer "user_id"
+    t.integer "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_comments_on_post_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "dresses", force: :cascade do |t|
@@ -43,10 +53,12 @@ ActiveRecord::Schema.define(version: 2020_10_29_093223) do
   end
 
   create_table "posts", force: :cascade do |t|
+    t.integer "user_id"
     t.string "title"
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "types", force: :cascade do |t|
@@ -65,7 +77,7 @@ ActiveRecord::Schema.define(version: 2020_10_29_093223) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_type"
+    t.integer "user_type", default: 1, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

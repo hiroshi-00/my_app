@@ -27,20 +27,29 @@ class DressesController < ApplicationController
   # POST /dresses.json
   def create
     @dress = Dress.new(dress_params)
-    if @dress.save
-      @status = true
-    else
-      @status = false
+    
+    respond_to do |format|
+      if @dress.save
+        format.html { redirect_to @dress, notice: 'Weapon was successfully created.' }
+        format.json { render :show, status: :created, location: @dress }
+      else
+        format.html { render :new }
+        format.json { render json: @dress.errors, status: :unprocessable_entity }
+      end
     end
   end
 
   # PATCH/PUT /dresses/1
   # PATCH/PUT /dresses/1.json
-  def update(dress_params)
-    if @dress.update
-      @status = true
-    else
-      @status = false
+  def update
+    respond_to do |format|
+      if @dress.update(dress_params)
+        format.html { redirect_to @dress, notice: 'Dress was successfully updated' }
+        format.json { render :show, status: :ok, location: @dress }
+      else
+        format.html { render :edit }
+        format.json { render json: @dress.errors, status: :unprocessable_entity }
+      end
     end
   end
 
@@ -48,6 +57,10 @@ class DressesController < ApplicationController
   # DELETE /dresses/1.json
   def destroy
     @dress.destroy
+    respond_to do |format|
+      format.html { redirect_to dresses_url, notice: 'dress was successfully destroyed.' }
+      format.json { head :no_content }
+    end
   end
 
   private

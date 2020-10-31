@@ -1,0 +1,29 @@
+<h2>コメントをする</h2>
+
+<%= form_with(model:[@post, @comment], method: :post) do |f| %>
+  <%= f.hidden_field :post_id, value: @post.id %>
+  <div class="field form-group">
+    <%= f.label :comment_title %>
+    <%= f.text_field :comment_title, class:"form-control" %>
+  </div>
+  
+  <div class="field form-group">
+    <%= f.label :comment_content %>
+    <%= f.text_field :comment_content, class:"form-control" %>
+  </div>
+  <div class="actions">
+    <%= f.submit "コメントする", class: "btn btn-primary" %>
+  </div>
+<% end %>
+
+<h2>コメント一覧</h2>
+
+<% @comments.each do |comment| %>
+  <div class="card mb-3">
+    <div class="card-body">
+      <h5 class="card-title"><%= comment.comment_title %> </h5>
+      <p class="card-text"><%= comment.comment_content %></p>
+      <%= link_to 'Destroy', post_comment_path(@post), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger" %>
+    </div>
+  </div>
+<% end %>

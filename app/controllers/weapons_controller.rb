@@ -28,20 +28,28 @@ class WeaponsController < ApplicationController
   # POST /weapons.json
   def create
     @weapon = Weapon.new(weapon_params)
-    if @weapon.save
-      @status = true
-    else
-      @status = false
+    respond_to do |format|
+      if @weapon.save
+        format.html { redirect_to @weapon, notice: 'Weapon was successfully created.' }
+        format.json { render :show, status: :created, location: @weapon }
+      else
+        format.html { render :new }
+        format.json { render json: @weapon.errors, status: :unprocessable_entity }
+      end
     end
   end
 
   # PATCH/PUT /weapons/1
   # PATCH/PUT /weapons/1.json
-  def update(weapon_params)
-    if @weapon.update
-      @status = true
-    else
-      @status = false
+  def update
+    respond_to do |format|
+      if @weapon.update(weapon_params)
+        format.html { redirect_to @weapon, notice: 'Weapon was successfully updated' }
+        format.json { render :show, status: :ok, location: @weapon }
+      else
+        format.html { render :edit }
+        format.json { render json: @weapon.errors, status: :unprocessable_entity }
+      end
     end
   end
 
@@ -49,6 +57,10 @@ class WeaponsController < ApplicationController
   # DELETE /weapons/1.json
   def destroy
     @weapon.destroy
+    respond_to do |format|
+      format.html { redirect_to weapons_url, notice: 'Weapon was successfully destroyed.' }
+      format.json { head :no_content }
+    end
   end
 
   private

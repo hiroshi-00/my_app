@@ -67,5 +67,3 @@ gem 'jquery-rails'
 
 # devise
 gem 'devise', '~> 4.2'
-# rails_admin
-gem 'rails_admin', '~> 2.0.0'

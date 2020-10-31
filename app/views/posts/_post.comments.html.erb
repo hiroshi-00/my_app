@@ -1,0 +1,11 @@
+<div class="card mb-3">
+  <div class="card-body">
+    <h5 class="card-title"><%= post.comments.title %></h5>
+    <p class="card-text"><%= post.comments.content %></p>
+    <% if request.path == "/post" %>
+      <%= link_to 'Show', post.comments, class: "btn btn-outline-primary" %>
+    <% end %>
+    <%= link_to 'Edit', edit_post_comments_path(post.comments), class: "btn btn-outline-primary" %>
+    <%= link_to 'Destroy', post_comments, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger" %>
+  </div>
+</div>
