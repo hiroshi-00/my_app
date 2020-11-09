@@ -11,10 +11,8 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
-    #投稿詳細に関連付けてあるコメントを全取得
-    @comments = @post.comments  
-    #投稿詳細画面でコメントの投稿を行うので、formのパラメータ用にCommentオブジェクトを取得
-    @comment = current_user.comments.new  
+    @comments = @post.comments
+    @comment = current_user.comments.new
   end
 
   # GET /posts/new
@@ -30,6 +28,7 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
+    @post.user_id = current_user.id 
 
     respond_to do |format|
       if @post.save
@@ -74,6 +73,6 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:title, :content)
+      params.require(:post).permit(:user_id, :title, :content)
     end
 end

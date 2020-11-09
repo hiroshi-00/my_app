@@ -4,3 +4,21 @@
 @import "devise";
 @import "users_login_form";
 @import "scaffolds";
+
+
+
+.nav-icon {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.my-app-post-body {
+  margin-left: -10px;
+}
+
+.nice-btn {
+  width: 25px;
+  height: 25px;
+}

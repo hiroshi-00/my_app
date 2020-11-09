@@ -8,12 +8,18 @@
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
+
+  <div class="field">
+    <%= f.label :icon %><br />
+    <%= f.file_field :icon, autofocus: true, autocomplete: "icon" %>
+  </div>
+
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
   <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+    <%= f.label :password, "パスワード" %> <i>(パスワードを変更しない場合は記入しなくてもよい)</i><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
     <% if @minimum_password_length %>
       <br />
@@ -27,17 +33,17 @@
   </div>
 
   <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.label :current_password, "現在のパスワード" %> <i>(情報を更新するには現在のパスワードを入力してください)</i><br />
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Update" %>
+    <%= f.submit "更新する", class: "btn btn-primary" %>
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
+<h3>アカウントを削除しますか?</h3>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<%= button_to "退会する", registration_path(resource_name), data: { confirm: "本当に削除しますか?" }, method: :delete, class: "my-2 btn btn-danger" %>
 
-<%= link_to "Back", :back %>
+<%= link_to "Back", user_path(@user) %>
