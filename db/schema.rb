@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_04_121829) do
+ActiveRecord::Schema.define(version: 2020_11_12_101652) do
 
   create_table "categories", force: :cascade do |t|
     t.integer "weapon_id"

@@ -1,11 +1,11 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :post_search, only: [:index]
 
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
   end
 
   # GET /posts/1
@@ -74,5 +74,15 @@ class PostsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def post_params
       params.require(:post).permit(:user_id, :title, :content)
+    end
+    
+    
+    def post_search
+      if params[:search].present?
+        @posts = Post.where("content LIKE ?", "%#{params[:search]}%")
+      else
+        @posts = Post.all
+      end
+      
     end
 end

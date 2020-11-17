@@ -9,8 +9,7 @@ Rails.application.routes.draw do
    :registrations => 'users/registrations',
    :sessions => 'users/sessions'
   }
-  resources :users, only: [:index, :show]
-  
+  resources :users
   resources :posts do 
     resources :comments, only: [:create, :destroy]
     resource :favorites, only: [:create, :destroy]

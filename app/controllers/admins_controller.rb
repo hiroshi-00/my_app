@@ -3,10 +3,9 @@ class AdminsController < ApplicationController
   before_action :basic_auth
   before_action :admins_user_auth, only: [:index]
   
-  
   def index
+    @user = User.all
   end
-  
   
   private 
     def basic_auth
@@ -27,12 +26,10 @@ class AdminsController < ApplicationController
         else
           flash[:error] = "権限がありません"
           redirect_back(fallback_location: root_path)
-          # redirect_to new_user_session_path
         end
       else
           flash[:alert] = "管理者としてログインしてください"
           redirect_back(fallback_location: root_path)
-          # redirect_to new_user_session_path
       end
     end
 end

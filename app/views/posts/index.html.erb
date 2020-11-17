@@ -1,4 +1,8 @@
 <h1>Events</h1>
+<%= form_tag "/posts", method: "get" do  %>
+  <%= text_field_tag :search %>
+  <%= submit_tag "検索" %>
+<% end %>
 
 <%= render @posts %>
 
